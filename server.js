@@ -1,0 +1,20 @@
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+const app = express();
+const PORT = process.env.PORT || 3000;
+const DB = path.join(__dirname, 'localdb.json');
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+const readDB = () => JSON.parse(fs.readFileSync(DB, 'utf8'));
+const writeDB = (data) => fs.writeFileSync(DB, JSON.stringify(data, null, 2));
+app.get('/api/menu', (req, res) => res.json(readDB()));
+app.post('/api/orders', (req, res) => {
+  const db = readDB();
+  const { customer, phone, items, subtotal, tax, total } = req.body;
+  if (!Array.isArray(items) || !items.length) return res.status(400).json({error:'Order must contain items.'});
+  const order = { id: Date.now(), date: new Date().toISOString(), customer: customer || 'Walk-in', phone: phone || '', items, subtotal, tax, total };
+  db.orders.push(order); writeDB(db); res.status(201).json(order);
+});
+app.get('/api/orders', (req, res) => res.json(readDB().orders));
+app.listen(PORT, () => console.log(`Restaurant Billing running at http://localhost:${PORT}`));

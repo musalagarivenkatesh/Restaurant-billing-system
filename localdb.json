@@ -1,0 +1,20 @@
+{
+  "restaurant": {"name": "Saffron & Spice", "address": "Restaurant Address", "phone": "000-000-0000", "taxRate": 5},
+  "menu": [
+    {"id": 1, "name": "Veg Biryani", "category": "Main Course", "price": 160},
+    {"id": 2, "name": "Chicken Biryani", "category": "Main Course", "price": 220},
+    {"id": 3, "name": "Paneer Butter Masala", "category": "Main Course", "price": 190},
+    {"id": 4, "name": "Butter Naan", "category": "Breads", "price": 40},
+    {"id": 5, "name": "Plain Roti", "category": "Breads", "price": 25},
+    {"id": 6, "name": "Masala Dosa", "category": "Breakfast", "price": 90},
+    {"id": 7, "name": "Idli (2 pcs)", "category": "Breakfast", "price": 50},
+    {"id": 8, "name": "Veg Manchurian", "category": "Starters", "price": 140},
+    {"id": 9, "name": "Chicken 65", "category": "Starters", "price": 180},
+    {"id": 10, "name": "French Fries", "category": "Starters", "price": 100},
+    {"id": 11, "name": "Fresh Lime Soda", "category": "Drinks", "price": 60},
+    {"id": 12, "name": "Mango Lassi", "category": "Drinks", "price": 80},
+    {"id": 13, "name": "Gulab Jamun (2 pcs)", "category": "Desserts", "price": 60},
+    {"id": 14, "name": "Ice Cream", "category": "Desserts", "price": 70}
+  ],
+  "orders": []
+}
